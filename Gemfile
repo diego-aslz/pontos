@@ -22,6 +22,7 @@ end
 
 group :development do
   gem "nifty-generators"
+  gem "debugger"
 end
 
 gem 'jquery-rails'

@@ -1,9 +1,12 @@
 class Period < ActiveRecord::Base
   attr_accessible :start, :finish, :day
 
-  after_initialize :load_horaries
-
   @@horaries = nil
+
+  scope :by_month, ->(date) {
+    where('day between :start and :finish', start: date.strftime('%Y-%m-00'),
+        finish: date.strftime('%Y-%m-31')).order(:day, :start, :finish)
+  }
 
   def self.horaries
     return @@horaries if @@horaries
@@ -16,8 +19,13 @@ class Period < ActiveRecord::Base
     @@horaries
   end
 
-  def load_horaries
+  def load_morning
     self.start = '08:00'
     self.finish = '12:00'
+  end
+
+  def load_afternoon
+    self.start = '14:00'
+    self.finish = '18:00'
   end
 end

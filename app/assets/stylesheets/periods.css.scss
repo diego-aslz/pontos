@@ -1,0 +1,14 @@
+
+.horaries-table {
+  width: 100%;
+  border: 1px solid;
+  border-collapse: collapse;
+  td {
+    border-top: solid 1px black;
+    text-align: center;
+  }
+  td.day {
+    font-weight: bold;
+    text-align: left;
+  }
+}

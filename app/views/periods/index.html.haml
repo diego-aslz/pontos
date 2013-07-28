@@ -1,17 +1,23 @@
-- title Period.model_name.human.pluralize
+- title @base.strftime '%B/%Y'
 
-%table
+%table.horaries-table
   %tr
-    %th=Period.human_attribute_name :start
-    %th=Period.human_attribute_name :finish
-    %th=Period.human_attribute_name :day
-  - for period in @periods
+    %th
+    %th{colspan: 2} Morning
+    %th{colspan: 2} Afernoon
+  %tr
+    %th= Period.human_attribute_name :day
+    %th= Period.human_attribute_name :start
+    %th= Period.human_attribute_name :finish
+    %th= Period.human_attribute_name :start
+    %th= Period.human_attribute_name :finish
+  - month = Date.new(@base.year, @base.month, -1)
+  - last = month.day
+  - 1.upto last do |day|
+    - month = month.change day: day
     %tr
-      %td= period.start
-      %td= period.finish
-      %td= period.day
-      %td= link_to_show period
-      %td= link_to_edit edit_period_path(period)
-      %td= link_to_destroy period
-
-%p= link_to_new new_period_path
+      - morning = periods_for(@periods, day, true).first
+      - afternoon = periods_for(@periods, day).first
+      %td.day= sprintf "%02d", day
+      = show_period morning, month, true
+      = show_period afternoon, month
