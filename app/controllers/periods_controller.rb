@@ -11,7 +11,7 @@ class PeriodsController < InheritedResources::Base
 
   def new
     @period = Period.new
-    @period.day = Date.strptime(params[:day]) if params[:day] # , '%Y-%m-%d'
+    @period.day = Date.strptime(params[:day]) if params[:day]
     if params[:morning]
       @period.load_morning
     else
