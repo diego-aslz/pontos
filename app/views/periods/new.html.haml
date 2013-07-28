@@ -1,5 +1,6 @@
-- title "New Period"
+- title t '.title', :default => t('helpers.titles.new', :model => Period.model_name.human,
+                                 :default => "New #{Period.model_name.human}")
 
 = render 'form'
 
-%p= link_to "Back to List", periods_path
+%p= link_to t('helpers.links.index'), periods_path

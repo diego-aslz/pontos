@@ -1,8 +1,6 @@
-- title "Edit Period"
+- title t '.title', :default => t('helpers.titles.edit', :model => Period.model_name.human,
+                                 :default => "Edit #{Period.model_name.human}")
 
 = render 'form'
 
-%p
-  = link_to "Show", @period
-  |
-  = link_to "View All", periods_path
+%p= link_to t('helpers.links.index'), periods_path
