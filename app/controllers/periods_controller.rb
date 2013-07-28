@@ -1,7 +1,7 @@
 class PeriodsController < InheritedResources::Base
   def index
     begin
-      @base = Date.strpdate params[:base], '%Y-%m'
+      @base = Date.strptime params[:base], '%Y-%m'
     rescue
       @base = Date.today
     end

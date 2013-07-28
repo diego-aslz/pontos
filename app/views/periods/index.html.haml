@@ -1,5 +1,13 @@
 - title @base.strftime '%B/%Y'
 
+.months
+  .left
+    = link_to_month "Previous", @base.prev_month
+  .mid
+    = link_to_month "Current", Date.today
+  .right
+    = link_to_month "Next", @base.next_month
+
 %table.horaries-table
   %tr
     %th

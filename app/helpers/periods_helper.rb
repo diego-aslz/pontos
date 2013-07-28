@@ -25,4 +25,8 @@ module PeriodsHelper
     params << "morning=1" if morning
     new_period_path + "?" + params.join('&')
   end
+
+  def link_to_month(text, month)
+    link_to text, periods_path + "?base=" + month.strftime('%Y-%m')
+  end
 end

@@ -12,3 +12,28 @@
     text-align: left;
   }
 }
+
+.months {
+  width: 100%;
+  position: relative;
+  height: 2em;
+  div {
+    position: absolute;
+    width: 200px;
+  }
+}
+
+.left {
+  left: 0px;
+}
+
+.mid {
+  text-align: center;
+  left: 50%;
+  margin-left: -100px;
+}
+
+.right {
+  text-align: right;
+  right: 0px;
+}
