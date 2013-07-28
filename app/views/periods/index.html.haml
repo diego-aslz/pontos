@@ -1,0 +1,17 @@
+- title Period.model_name.human.pluralize
+
+%table
+  %tr
+    %th=Period.human_attribute_name :start
+    %th=Period.human_attribute_name :finish
+    %th=Period.human_attribute_name :day
+  - for period in @periods
+    %tr
+      %td= period.start
+      %td= period.finish
+      %td= period.day
+      %td= link_to_show period
+      %td= link_to_edit edit_period_path(period)
+      %td= link_to_destroy period
+
+%p= link_to_new new_period_path

@@ -1,0 +1,18 @@
+- title "Period"
+
+%p
+  %strong Start:
+  = @period.start
+%p
+  %strong Finish:
+  = @period.finish
+%p
+  %strong Day:
+  = @period.day
+
+%p
+  = link_to "Edit", edit_period_path(@period)
+  |
+  = link_to "Destroy", @period, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", periods_path
