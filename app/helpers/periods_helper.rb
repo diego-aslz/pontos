@@ -11,7 +11,7 @@ module PeriodsHelper
       content = "
           <td>#{link_to period.start, edit_period_path(period)}</td>
           <td>#{link_to period.finish, edit_period_path(period)}</td>
-          <td>#{link_to icon_tag('trash'), period, method: :delete, confirm: "Are you sure?"}</td>"
+          <td>#{link_to icon_tag('trash'), period, method: :delete, confirm: t(:confirm)}</td>"
     else
       set_label = t(:set_period)
       content = "

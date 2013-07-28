@@ -11,5 +11,6 @@
   %p
     = f.label :day
     %br
-    = f.date_select :day
+    = l @period.day, format: :long if @period.day
+    = f.hidden_field :day
   %p= f.submit
