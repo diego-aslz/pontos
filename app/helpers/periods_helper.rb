@@ -10,11 +10,12 @@ module PeriodsHelper
     if period
       content = "
           <td>#{link_to period.start, edit_period_path(period)}</td>
-          <td>#{link_to period.finish, edit_period_path(period)}</td>"
+          <td>#{link_to period.finish, edit_period_path(period)}</td>
+          <td>#{link_to icon_tag('trash'), period, method: :delete, confirm: "Are you sure?"}</td>"
     else
       set_label = t(:set_period)
       content = "
-          <td colspan=\"2\"> #{link_to set_label, new_specific_period_path(day,
+          <td colspan=\"3\"> #{link_to set_label, new_specific_period_path(day,
               morning)}</td>"
     end
     content.html_safe

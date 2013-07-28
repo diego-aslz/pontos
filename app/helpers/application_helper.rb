@@ -16,4 +16,8 @@ module ApplicationHelper
         confirm: t('.confirm', default: t('helpers.messages.confirm',
             default: 'Are you sure?')), method: :delete
   end
+
+  def icon_tag(icon)
+    content_tag :i, '', class: "icon-#{icon}"
+  end
 end
