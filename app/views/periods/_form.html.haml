@@ -1,0 +1,15 @@
+= form_for @period do |f|
+  = f.error_messages
+  %p
+    = f.label :start
+    %br
+    = f.select :start, Period.horaries
+  %p
+    = f.label :finish
+    %br
+    = f.select :finish, Period.horaries
+  %p
+    = f.label :day
+    %br
+    = f.date_select :day
+  %p= f.submit

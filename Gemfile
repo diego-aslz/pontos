@@ -25,6 +25,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'haml'
 gem 'inherited_resources'
 
 # To use ActiveModel has_secure_password
