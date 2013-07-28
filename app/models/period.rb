@@ -4,8 +4,11 @@ class Period < ActiveRecord::Base
   @@horaries = nil
 
   scope :by_month, ->(date) {
-    where('day between :start and :finish', start: date.strftime('%Y-%m-00'),
-        finish: date.strftime('%Y-%m-31')).order(:day, :start, :finish)
+    by_period(date.change(day: 1), date.change(day: -1))
+  }
+  scope :by_period, ->(start_date, finish_date) {
+    where('day between :start and :finish', start: start_date,
+        finish: finish_date).order(:day, :start, :finish)
   }
 
   def self.horaries
@@ -27,5 +30,9 @@ class Period < ActiveRecord::Base
   def load_afternoon
     self.start = '14:00'
     self.finish = '18:00'
+  end
+
+  def total_time
+    Time.strptime(finish, "%H:%M") - Time.strptime(start, "%H:%M")
   end
 end

@@ -1,12 +1,15 @@
 
 pt-BR:
-  previous_month: Mês anterior
-  current_month: Mês atual
-  next_month: Próximo mês
-  set_period: Informar
-  morning: Manhã
   afternoon: Tarde
+  balance: Saldo
   confirm: Tem certeza?
+  current_month: Mês atual
+  expected: Esperado
+  morning: Manhã
+  next_month: Próximo mês
+  previous_month: Mês anterior
+  set_period: Informar
+  worked: Trabalhado
 
   activerecord:
     models:

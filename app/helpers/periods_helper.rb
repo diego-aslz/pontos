@@ -30,4 +30,12 @@ module PeriodsHelper
   def link_to_month(text, month)
     link_to text, periods_path + "?base=" + month.strftime('%Y-%m')
   end
+
+  def formatted_time(time)
+    if time >= 0
+      Time.at(time).gmtime.strftime('%R')
+    else
+      '-' + Time.at(time * -1).gmtime.strftime('%R')
+    end
+  end
 end
