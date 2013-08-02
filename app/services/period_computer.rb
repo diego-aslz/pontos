@@ -17,7 +17,7 @@ class PeriodComputer
       else
         8.hours
       end
-    end
+    end if @from_date
     @expected_time
   end
 
