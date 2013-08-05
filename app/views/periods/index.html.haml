@@ -4,11 +4,11 @@
   .left
     = link_to_month t(:previous_month), @base.prev_month
     %br
-    = formatted_time PeriodComputer.new(nil, @base.change(day:1).yesterday).balance
+    = formatted_time PeriodComputer.new(current_user, nil, @base.change(day:1).yesterday).total_balance
   .mid
     = link_to_month t(:current_month), Date.today
     %br
-    = formatted_time PeriodComputer.new(nil, nil).balance
+    = formatted_time PeriodComputer.new(current_user, nil, nil).total_balance
   .right
     = link_to_month t(:next_month), @base.next_month
 
@@ -46,7 +46,7 @@
         %td{colspan: 9}
     - else
       - # COMMON DAYS
-      - computer = PeriodComputer.new(month)
+      - computer = PeriodComputer.new(current_user, month)
       %tr
         %td.day= l month, format: '%a'
         %td.day= l month, format: '%d'

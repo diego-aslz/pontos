@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805020742) do
+ActiveRecord::Schema.define(:version => 20130805021723) do
 
   create_table "periods", :force => true do |t|
     t.string   "start"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20130805020742) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.decimal  "initial_balance", :default => 0.0
   end
 
 end

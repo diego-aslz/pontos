@@ -28,11 +28,12 @@ pt-BR:
         email: E-mail
         password_confirmation: Confirme sua Senha
         username: Usuário
+        initial_balance: Saldo em horas atual
 
   helpers:
     titles:
-      new: Adicionar %{model}
-      edit: Editar %{model}
+      new: 'Adicionar %{model}'
+      edit: 'Editar %{model}'
       login: Acesse o sistema
       sign_up: Novo Usuário
     messages:
