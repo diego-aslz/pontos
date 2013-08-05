@@ -5,10 +5,21 @@
     = f.label :username
     %br
     = f.text_field :username
-  %p
-    = f.label :initial_balance
-    %br
-    = f.text_field :initial_balance
+  - unless @user.new_record?
+    %p
+      = f.label :initial_balance
+      %br
+      = f.text_field :initial_balance
+    %p
+      = f.label :default_morning_start
+      %br
+      = f.select :default_morning_start, Period.horaries
+      = f.select :default_morning_finish, Period.horaries
+    %p
+      = f.label :default_afternoon_start
+      %br
+      = f.select :default_afternoon_start, Period.horaries
+      = f.select :default_afternoon_finish, Period.horaries
   %p
     = f.label :email
     %br

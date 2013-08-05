@@ -28,14 +28,30 @@ class Period < ActiveRecord::Base
     @@horaries
   end
 
-  def load_morning
-    self.start = '08:00'
-    self.finish = '12:00'
+  def load_morning(user = nil)
+    unless user and user.default_morning_start
+      self.start = '08:00'
+    else
+      self.start = user.default_morning_start
+    end
+    unless user and user.default_morning_finish
+      self.finish = '12:00'
+    else
+      self.finish = user.default_morning_finish
+    end
   end
 
-  def load_afternoon
-    self.start = '14:00'
-    self.finish = '18:00'
+  def load_afternoon(user = nil)
+    unless user and user.default_afternoon_start
+      self.start = '14:00'
+    else
+      self.start = user.default_afternoon_start
+    end
+    unless user and user.default_afternoon_finish
+      self.finish = '18:00'
+    else
+      self.finish = user.default_afternoon_finish
+    end
   end
 
   def total_time

@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation,
-      :initial_balance
+      :initial_balance, :default_morning_start, :default_morning_finish,
+      :default_afternoon_start, :default_afternoon_finish
 
   attr_accessor :password
   before_save :prepare_password

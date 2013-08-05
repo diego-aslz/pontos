@@ -19,9 +19,9 @@ class PeriodsController < InheritedResources::Base
     @period = Period.new
     @period.day = Date.strptime(params[:day]) if params[:day]
     if params[:morning]
-      @period.load_morning
+      @period.load_morning current_user
     else
-      @period.load_afternoon
+      @period.load_afternoon current_user
     end
     new!
   end

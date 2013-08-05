@@ -29,6 +29,8 @@ pt-BR:
         password_confirmation: Confirme sua Senha
         username: Usuário
         initial_balance: Saldo em horas atual
+        default_morning_start: Horário Padrão - Manhã
+        default_afternoon_start: Horário Padrão - Tarde
 
   helpers:
     titles:
