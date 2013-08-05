@@ -13,13 +13,13 @@
     %p
       = f.label :default_morning_start
       %br
-      = f.select :default_morning_start, Period.horaries
-      = f.select :default_morning_finish, Period.horaries
+      = f.select :default_morning_start, Period.morning_horaries
+      = f.select :default_morning_finish, Period.morning_horaries
     %p
       = f.label :default_afternoon_start
       %br
-      = f.select :default_afternoon_start, Period.horaries
-      = f.select :default_afternoon_finish, Period.horaries
+      = f.select :default_afternoon_start, Period.afternoon_horaries
+      = f.select :default_afternoon_finish, Period.afternoon_horaries
   %p
     = f.label :email
     %br
