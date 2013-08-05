@@ -3,7 +3,7 @@ class PeriodsController < InheritedResources::Base
     begin
       @base = Date.strptime params[:base], '%Y-%m'
     rescue
-      @base = Date.today
+      @base = Period.order(:day).last.day
     end
     @periods = Period.by_month @base
     index!
