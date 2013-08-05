@@ -2,10 +2,14 @@ class PeriodsController < InheritedResources::Base
   before_filter :login_required
 
   def index
-    begin
+    if params[:base].blank?
+      begin
+        @base = Period.by_user(current_user).order(:day).last.day
+      rescue
+        @base = Date.today
+      end
+    else
       @base = Date.strptime params[:base], '%Y-%m'
-    rescue
-      @base = Period.order(:day).last.day
     end
     @periods = Period.by_user(current_user).by_month @base
     index!
