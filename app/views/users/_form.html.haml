@@ -1,0 +1,23 @@
+= form_for @user do |f|
+  = f.error_messages
+
+  %p
+    = f.label :username
+    %br
+    = f.text_field :username
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+
+  %p= f.submit (@user.new_record? ? t(:'helpers.submit.create',
+      model: User.model_name.human) : t(:'helpers.submit.update',
+      model: User.model_name.human))

@@ -10,23 +10,40 @@ pt-BR:
   previous_month: Mês anterior
   set_period: Informar
   worked: Trabalhado
+  logged_in_as: Acessou como
+  or: ou
 
   activerecord:
     models:
       period: Período
+      user: Usuário
     attributes:
       period:
         day: Dia
         start: Início
         finish: Fim
+      user:
+        login: Usuário ou e-mail
+        password: Senha
+        email: E-mail
+        password_confirmation: Confirme sua Senha
+        username: Usuário
 
   helpers:
     titles:
       new: Adicionar %{model}
       edit: Editar %{model}
+      login: Acesse o sistema
+      sign_up: Novo Usuário
     messages:
-      created: Êxito ao salvar %{model}
-      updated: Êxito ao atualizar %{model}
+      created: '%{model} salvo com sucesso'
+      updated: '%{model} atualizado com sucesso'
+      no_account: Não possui uma conta ainda?
+      has_account: Já possui uma conta de usuário?
+      sign_up: Obrigado por se registrar! Você acessou o sistema com sucesso.
+      login: Você acessou o sistema com sucesso.
+      wrong_user: Usuário ou senha inválido.
+      logout: Você saiu do sistema.
     links:
       edit: Editar
       new: Adicionar
@@ -35,6 +52,9 @@ pt-BR:
       cancel: Cancelar
       back: Voltar
       index: Listar todos
+      sign_up: Cadastre-se
+      login: Acessar
+      logout: Sair
     submit:
       create: Criar %{model}
       submit: Salvar %{model}
@@ -242,4 +262,3 @@ pt-BR:
       long: ! '%A, %d de %B de %Y, %H:%M h'
       short: ! '%d/%m, %H:%M h'
     pm: ''
-

@@ -88,3 +88,7 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+.user_status {
+  text-align: right;
+}

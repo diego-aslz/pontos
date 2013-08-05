@@ -31,7 +31,7 @@ gem 'haml'
 gem 'inherited_resources'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -44,5 +44,3 @@ gem 'inherited_resources'
 
 # To use debugger
 # gem 'debugger'
-
-gem "mocha", :group => :test

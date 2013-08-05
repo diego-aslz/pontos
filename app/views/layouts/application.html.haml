@@ -10,6 +10,14 @@
     = yield(:head)
   %body
     #container
+      .user_status
+        - if current_user
+          #{t(:logged_in_as)} #{link_to current_user.username, edit_user_path(current_user)}.
+          = link_to t(:'helpers.links.logout'), logout_path
+        - else
+          = link_to t(:'helpers.links.sign_up'), signup_path
+          = t :or
+          = link_to t(:'helpers.links.login'), login_path
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       = content_tag :h1, yield(:title) if show_title?
