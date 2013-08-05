@@ -1,11 +1,13 @@
 class PeriodsController < InheritedResources::Base
+  before_filter :login_required
+
   def index
     begin
       @base = Date.strptime params[:base], '%Y-%m'
     rescue
       @base = Period.order(:day).last.day
     end
-    @periods = Period.by_month @base
+    @periods = Period.by_user(current_user).by_month @base
     index!
   end
 
@@ -21,12 +23,19 @@ class PeriodsController < InheritedResources::Base
   end
 
   def create
+    @period = Period.new(params[:period])
+    @period.user = current_user
     create! do |success,error|
       success.html { redirect_to action: :index }
     end
   end
 
   def update
+    @period = Period.find(params[:id])
+    unless @period.user_id == current_user.id
+      redirect_to root_path
+      return
+    end
     update! do |success,error|
       success.html { redirect_to action: :index }
     end

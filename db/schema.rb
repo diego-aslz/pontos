@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130805012751) do
+ActiveRecord::Schema.define(:version => 20130805020742) do
 
   create_table "periods", :force => true do |t|
     t.string   "start"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20130805012751) do
     t.date     "day"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  add_index "periods", ["user_id"], :name => "index_periods_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

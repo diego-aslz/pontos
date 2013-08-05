@@ -1,8 +1,14 @@
 class Period < ActiveRecord::Base
   attr_accessible :start, :finish, :day
 
+  belongs_to :user
+  validates_presence_of :user_id
+
   @@horaries = nil
 
+  scope :by_user, ->(user) {
+    where(user_id: user.id)
+  }
   scope :by_month, ->(date) {
     by_period(date.change(day: 1), date.change(day: -1))
   }
