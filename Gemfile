@@ -21,6 +21,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'mysql2'
 gem 'inherited_resources'
 gem 'unicorn'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
