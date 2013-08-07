@@ -53,5 +53,5 @@
         = show_period morning, month, true
         = show_period afternoon, month
         %td= formatted_time computer.expected_time
-        %td= formatted_time computer.worked_time
-        %td= formatted_time computer.balance
+        %td= formatted_time computer.worked_time if morning or afternoon
+        %td= formatted_time computer.balance if morning or afternoon
