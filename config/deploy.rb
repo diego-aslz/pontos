@@ -20,6 +20,7 @@ role :app, "caronero.com.br"                          # This may be the same as 
 role :db,  "caronero.com.br", :primary => true # This is where Rails migrations will run
 
 after "deploy:restart", "deploy:cleanup"
+after "deploy:restart", "deploy:restart_service"
 
 namespace :deploy do
   task :setup_config, roles: :app do
@@ -34,4 +35,10 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
+
+  task :restart_service, roles: :app do
+    run "/etc/init.d/pontos stop"
+    sleep 1
+    run "/etc/init.d/pontos start"
+  end
 end
