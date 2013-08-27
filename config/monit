@@ -5,27 +5,27 @@ check process pontos_unicorn with pidfile /tmp/pontos.pid
   check process pontos_unicorn_worker_0 with pidfile /tmp/pontos.0.pid
     start program = "/bin/true"
     stop program = "/usr/bin/test -s /tmp/pontos.0.pid && /bin/kill -QUIT `cat /tmp/pontos.0.pid`"
-    if mem > 200.0 MB for 1 cycles then restart
+    if mem > 150.0 MB for 1 cycles then restart
     if cpu > 50% for 3 cycles then restart
     if 5 restarts within 5 cycles then timeout
 
   check process pontos_unicorn_worker_1 with pidfile /tmp/pontos.1.pid
     start program = "/bin/true"
     stop program = "/usr/bin/test -s /tmp/pontos.1.pid && /bin/kill -QUIT `cat /tmp/pontos.1.pid`"
-    if mem > 200.0 MB for 1 cycles then restart
+    if mem > 150.0 MB for 1 cycles then restart
     if cpu > 50% for 3 cycles then restart
     if 5 restarts within 5 cycles then timeout
 
   check process pontos_unicorn_worker_2 with pidfile /tmp/pontos.2.pid
     start program = "/bin/true"
     stop program = "/usr/bin/test -s /tmp/pontos.2.pid && /bin/kill -QUIT `cat /tmp/pontos.2.pid`"
-    if mem > 200.0 MB for 1 cycles then restart
+    if mem > 150.0 MB for 1 cycles then restart
     if cpu > 50% for 3 cycles then restart
     if 5 restarts within 5 cycles then timeout
 
   check process pontos_unicorn_worker_3 with pidfile /tmp/pontos.3.pid
     start program = "/bin/true"
     stop program = "/usr/bin/test -s /tmp/pontos.3.pid && /bin/kill -QUIT `cat /tmp/pontos.3.pid`"
-    if mem > 200.0 MB for 1 cycles then restart
+    if mem > 150.0 MB for 1 cycles then restart
     if cpu > 50% for 3 cycles then restart
     if 5 restarts within 5 cycles then timeout
