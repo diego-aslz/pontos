@@ -25,5 +25,5 @@ gem 'mysql2'
 gem 'inherited_resources'
 gem 'unicorn'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
-gem 'capistrano'
+gem 'capistrano', '~> 2.15.5', group: :development
 gem 'maskedinput-rails'
