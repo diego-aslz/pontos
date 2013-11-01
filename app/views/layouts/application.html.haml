@@ -2,8 +2,8 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : "Untitled"
-    /[if lt IE 8]
-      = stylesheet_link_tag "font-awesome-ie7.min.css", media: "all"
+    -# /[if lt IE 8]  IT COMPLAINS THAT THIS CSS IS NOT PRECOMPILED
+      =# stylesheet_link_tag "font-awesome-ie7.min.css", media: "all"
     = stylesheet_link_tag "application"
     = javascript_include_tag :application
     = csrf_meta_tag
