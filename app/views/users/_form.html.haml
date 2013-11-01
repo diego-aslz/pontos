@@ -4,7 +4,7 @@
   %p
     = f.label :username
     %br
-    = f.text_field :username
+    = f.text_field :username, autofocus: true
   - unless @user.new_record?
     %p
       = f.label :initial_balance
@@ -13,13 +13,13 @@
     %p
       = f.label :default_morning_start
       %br
-      = f.select :default_morning_start, Period.morning_horaries
-      = f.select :default_morning_finish, Period.morning_horaries
+      = f.text_field :default_morning_start, class: :horaries
+      = f.text_field :default_morning_finish, class: :horaries
     %p
       = f.label :default_afternoon_start
       %br
-      = f.select :default_afternoon_start, Period.afternoon_horaries
-      = f.select :default_afternoon_finish, Period.afternoon_horaries
+      = f.text_field :default_afternoon_start, class: :horaries
+      = f.text_field :default_afternoon_finish, class: :horaries
   %p
     = f.label :email
     %br

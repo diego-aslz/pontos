@@ -26,3 +26,4 @@ gem 'inherited_resources'
 gem 'unicorn'
 gem 'bcrypt-ruby', '~> 3.0.0', :require => "bcrypt"
 gem 'capistrano'
+gem 'maskedinput-rails'

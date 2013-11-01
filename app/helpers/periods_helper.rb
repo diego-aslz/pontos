@@ -32,9 +32,10 @@ module PeriodsHelper
   end
 
   def formatted_time(time)
-    hours = time.to_i / 3600
+    negative = time < 0 && time *= -1
+    hours = (time / 3600).to_i
     minutes = (time.to_i % 3600) / 60
     minutes = minutes * -1 if minutes < 0
-    '%0.0f:%02.0f' % [hours, minutes]
+    "#{'- ' if negative}%0.0f:%02.0f" % [hours, minutes]
   end
 end

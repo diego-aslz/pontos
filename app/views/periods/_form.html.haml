@@ -1,14 +1,13 @@
-- horaries = (@period.morning ? Period.morning_horaries : Period.afternoon_horaries)
 = form_for @period do |f|
   = f.error_messages
   %p
     = f.label :start
     %br
-    = f.select :start, horaries
+    = f.text_field :start, class: 'horaries', autofocus: true
   %p
     = f.label :finish
     %br
-    = f.select :finish, horaries
+    = f.text_field :finish, class: 'horaries'
   %p
     = f.label :day
     %br
