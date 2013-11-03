@@ -13,11 +13,12 @@ class PeriodComputer
     return @expected_time if @expected_time
     @expected_time = 0
     @from_date.upto @to_date do |date|
-      @expected_time += if date.saturday? || date.sunday?
-        0.hours
-      else
-        8.hours
-      end
+      day = @user.horaries[date.wday]
+      next unless day
+      hours = 0
+      hours += calculate_hours day[0], day[1]
+      hours += calculate_hours day[2], day[3]
+      @expected_time += hours
     end if @from_date
     @expected_time
   end
@@ -37,5 +38,12 @@ class PeriodComputer
 
   def total_balance
     (@user.initial_balance || 0).hours + worked_time - expected_time
+  end
+
+  protected
+
+  def calculate_hours(start, finish)
+    return 0 unless start && finish && !start.empty? && !finish.empty?
+    Time.strptime(finish, "%H:%M") - Time.strptime(start, "%H:%M")
   end
 end

@@ -38,20 +38,12 @@
     - morning = periods_for(@periods, day, true).first
     - afternoon = periods_for(@periods, day).first
     - # TABLE CONTENT
-    - if month.sunday? || month.saturday?
-      - # WEEKEND
-      %tr.weekend
-        %td.day= l month, format: '%a'
-        %td.day= l month, format: '%d'
-        %td{colspan: 9}
-    - else
-      - # COMMON DAYS
-      - computer = PeriodComputer.new(current_user, month)
-      %tr
-        %td.day= l month, format: '%a'
-        %td.day= l month, format: '%d'
-        = show_period morning, month, true
-        = show_period afternoon, month
-        %td= formatted_time computer.expected_time
-        %td= formatted_time computer.worked_time if morning or afternoon
-        %td= formatted_time computer.balance if morning or afternoon
+    - computer = PeriodComputer.new(current_user, month)
+    %tr{class: "#{'weekend' if computer.expected_time == 0}"}
+      %td.day= l month, format: '%a'
+      %td.day= l month, format: '%d'
+      = show_period morning, month, true
+      = show_period afternoon, month
+      %td= formatted_time computer.expected_time if computer.expected_time > 0
+      %td= formatted_time computer.worked_time if morning or afternoon
+      %td= formatted_time computer.balance if morning or afternoon
