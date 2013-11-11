@@ -4,6 +4,7 @@ class Period < ActiveRecord::Base
 
   belongs_to :user
   validates_presence_of :user_id
+  validates :start, :finish, format: { with: /\d\d:\d\d/ }
 
   @@morning_horaries = nil
   @@afternoon_horaries = nil
